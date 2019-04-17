@@ -1,0 +1,29 @@
+{
+  "name": "commander-extras",
+  "version": "1.0.0",
+  "description": "Extra functionality for commander including environment variables and notes",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hash-bang/commander-extras.git"
+  },
+  "keywords": [
+    "commander"
+  ],
+  "author": "Matt Carter <m@ttcarter.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hash-bang/commander-extras/issues"
+  },
+  "homepage": "https://github.com/hash-bang/commander-extras#readme",
+  "devDependencies": {
+    "commander": "^2.20.0"
+  },
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.3"
+  }
+}
