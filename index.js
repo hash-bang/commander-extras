@@ -39,7 +39,7 @@ commander.Command.prototype.helpInformation = function() {
 	}
 
 	// Notes
-	if (this._envs.length) {
+	if (this._notes.length) {
 		help += '\nNotes:\n';
 		this._notes.forEach(note => {
 			help += '  * ' + note + '\n'
