@@ -21,6 +21,8 @@ describe('commander-extras', ()=> {
 			.note('Note two')
 			.env('BAZ', 'Baz desription')
 			.note('Note three')
+			.example('exampleProgram foo bar baz')
+			.example('exampleProgram baz bar quz', 'Example alternate usage')
 			.parse(['node', 'app.js', '--help']);
 	});
 

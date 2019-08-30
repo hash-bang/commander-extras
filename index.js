@@ -15,6 +15,14 @@ commander.Command.prototype.env = function(name, desc) {
 };
 // }}}
 
+// .example() {{{
+commander.Command.prototype._examples = [];
+commander.Command.prototype.example = function(eg, title) {
+	this._examples.push([eg, title]);
+	return this;
+};
+// }}}
+
 // .note() {{{
 commander.Command.prototype._notes = [];
 commander.Command.prototype.note = function(note) {
@@ -34,7 +42,7 @@ commander.Command.prototype.helpInformation = function() {
 	if (this._envs.length) {
 		help += '\nEnvironment variables:\n';
 		this._envs.forEach(e => {
-			help += '  ' + pad(e[0], width) + '  ' + e[1] + '\n';
+			help += `  ${pad(e[0], width)}  ${e[1]}\n`;
 		});
 	}
 
@@ -42,7 +50,16 @@ commander.Command.prototype.helpInformation = function() {
 	if (this._notes.length) {
 		help += '\nNotes:\n';
 		this._notes.forEach(note => {
-			help += '  * ' + note + '\n'
+			help += `  * ${note}\n`
+		});
+	}
+
+	// Examples
+	if (this._examples.length) {
+		help += '\nExamples:\n';
+		this._examples.forEach(eg => {
+			if (eg[1]) help += `\n  # ${eg[1]}\n`;
+			help += '  ' + eg[0] + '\n'
 		});
 	}
 

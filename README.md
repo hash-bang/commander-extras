@@ -29,6 +29,11 @@ env(name, description)
 Used to define an environment variable.
 
 
+example(cli, title)
+----------------------
+Used to define an example with an optional title.
+
+
 note(description)
 -----------------
 Add an additional note to display at the bottom of the help output.
