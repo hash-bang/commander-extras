@@ -14,7 +14,6 @@ describe('commander-extras', ()=> {
 
 	it('should extend the existing help system with .env', ()=> {
 		var cli = commander
-			.option('-v, --verbose', 'Be verbose')
 			.env('FOO', 'Foo desription')
 			.env('BAR', 'Bar desription')
 			.note('Note one')
