@@ -35,7 +35,8 @@ commander.Command.prototype.note = function(note) {
 commander.Command.prototype.helpInformationOriginal = commander.Command.prototype.helpInformation;
 commander.Command.prototype.helpInformation = function() {
 	var help = '';
-	var width = this.padWidth();
+
+	var width = this.padWidth ? this.padWidth() : 0; // Determine padding for older Commander versions or just assume zero
 	help += this.helpInformationOriginal();
 
 	// Env
