@@ -4,6 +4,7 @@ Extremely small utility which adds additional functionality to the [Commander](h
 
 
 ```javascript
+// Using the global prototype mutate method
 var commander = require('commander');
 var commanderExtras = require('commander-extras');
 
@@ -15,13 +16,38 @@ var program = commander
 	.note('Note one')
 	.note('Note two')
 	.note('Note three')
-	.parse(process.argv);
+	.parse(process.argv)
+	.opts()
+```
+
+```javascript
+// Using the global prototype mutate method
+var commander = require('commander');
+var commanderExtras = require('commander-extras');
+
+var command = new commander.Command();
+var program = commanderExtras(command); // Mutate only our custom command
+
+var program = command
+	.option('-v, --verbose', 'Be verbose')
+	.env('FOO', 'FOO Environment variable desription')
+	.env('BAR', 'BAR Environment variable desription')
+	.env('BAZ', 'FOO environment variable desription')
+	.note('Note one')
+	.note('Note two')
+	.note('Note three')
+	.parse(process.argv)
+	.opts()
 ```
 
 
 API
 ===
 The following API's are added to the existing Commander prototype:
+
+CommanderExtras(Command?)
+-------------------------
+Take an optional `Commander.Command` instance and add the custom methods to it.
 
 
 env(name, description)

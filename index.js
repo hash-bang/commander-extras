@@ -67,3 +67,21 @@ commander.Command.prototype.helpInformation = function() {
 	return help;
 };
 // }}}
+
+// Extenter / injector function {{{
+module.exports = function(commandInst) {
+	if (commandInst === undefined) {
+		commandInst = new commander.Command();
+	} else if (!commandInst instanceof commander.Command) {
+		throw new Error('Single argument to commander-extras must be a commander.Command instance');
+	}
+
+	Object.defineProperties(commandInst, {
+		note: {
+			value: commander.Command.prototype.note,
+		},
+	});
+
+	return commandInst;
+};
+// }}}

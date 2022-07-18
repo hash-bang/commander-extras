@@ -41,4 +41,14 @@ describe('commander-extras', ()=> {
 		expect(cli).to.have.property('verbose', true);
 	});
 
+	it('should support new command instances', ()=> {
+		expect(commanderExtras()).to.be.an.instanceof(commander.Command);
+		expect(commanderExtras()).to.have.property('note');
+	});
+
+	it('should support extending command objects', ()=> {
+		expect(commanderExtras(new commander.Command)).to.be.an.instanceof(commander.Command);
+		expect(commanderExtras(new commander.Command)).to.have.property('note');
+	});
+
 });
