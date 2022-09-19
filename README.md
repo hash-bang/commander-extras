@@ -6,10 +6,9 @@ Extremely small utility which adds additional functionality to the [Commander](h
 ```javascript
 // Using the global prototype mutate method
 var commander = require('commander');
-var commanderExtras = require('commander-extras');
+require('commander-extras');
 
-var program = commander
-	.option('-v, --verbose', 'Be verbose')
+var program = commander.option('-v, --verbose', 'Be verbose')
 	.env('FOO', 'FOO Environment variable desription')
 	.env('BAR', 'BAR Environment variable desription')
 	.env('BAZ', 'FOO environment variable desription')
@@ -22,14 +21,13 @@ var program = commander
 
 ```javascript
 // Using the global prototype mutate method
-var commander = require('commander');
+var Commander = require('commander');
 var commanderExtras = require('commander-extras');
 
-var command = new commander.Command();
-var program = commanderExtras(command); // Mutate only our custom command
+var command = new Commander.Command();
+var commander = commanderExtras(command); // Mutate only our custom command
 
-var program = command
-	.option('-v, --verbose', 'Be verbose')
+var program = commander.option('-v, --verbose', 'Be verbose')
 	.env('FOO', 'FOO Environment variable desription')
 	.env('BAR', 'BAR Environment variable desription')
 	.env('BAZ', 'FOO environment variable desription')
