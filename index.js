@@ -10,6 +10,7 @@ function pad(str, width) {
 // .env() {{{
 commander.Command.prototype._envs = [];
 commander.Command.prototype.env = function(name, desc) {
+	if (typeof this._envs === 'undefined') this._envs = [];
 	this._envs.push([name, desc]);
 	return this;
 };
@@ -18,6 +19,7 @@ commander.Command.prototype.env = function(name, desc) {
 // .example() {{{
 commander.Command.prototype._examples = [];
 commander.Command.prototype.example = function(eg, title) {
+	if (typeof this._examples === 'undefined') this._examples = [];
 	this._examples.push([eg, title]);
 	return this;
 };
@@ -26,6 +28,7 @@ commander.Command.prototype.example = function(eg, title) {
 // .note() {{{
 commander.Command.prototype._notes = [];
 commander.Command.prototype.note = function(note) {
+	if (typeof this._notes === 'undefined') this._notes = [];
 	this._notes.push(note);
 	return this;
 };
@@ -76,7 +79,14 @@ module.exports = function(commandInst) {
 		throw new Error('Single argument to commander-extras must be a commander.Command instance');
 	}
 
+	// TODO: Loop/map own properties and define each?
 	Object.defineProperties(commandInst, {
+		env: {
+			value: commander.Command.prototype.env,
+		},
+		example: {
+			value: commander.Command.prototype.example,
+		},
 		note: {
 			value: commander.Command.prototype.note,
 		},
