@@ -58,6 +58,14 @@ example(cli, title)
 Used to define an example with an optional title.
 
 
+extend(function)
+----------------
+Run a function with the current commander context to extend it.
+This is useful to extend sub-commands with common settings.
+The function is called as `(commanderContext)` and has the same as its context.
+
+
+
 note(description)
 -----------------
 Add an additional note to display at the bottom of the help output.

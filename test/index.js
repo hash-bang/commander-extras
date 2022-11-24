@@ -51,4 +51,13 @@ describe('commander-extras', ()=> {
 		expect(commanderExtras(new commander.Command)).to.have.property('note');
 	});
 
+	it('should inject custom behaviour based on .extend()', ()=> {
+		var cli = commander
+			.option('--verbose', 'Be verbose')
+			.extend(p => p.option('-s, --stuff', 'Flag that we want extra stuff', 'yeah'))
+			.opts()
+
+		expect(cli).to.have.property('stuff', 'yeah');
+	});
+
 });

@@ -34,6 +34,12 @@ commander.Command.prototype.note = function(note) {
 };
 // }}}
 
+// .extend() {{{
+commander.Command.prototype.extend = function(fn) {
+	return fn.call(this, this);
+};
+// }}}
+
 // Extend existing help {{{
 commander.Command.prototype.helpInformationOriginal = commander.Command.prototype.helpInformation;
 commander.Command.prototype.helpInformation = function() {
