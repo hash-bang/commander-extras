@@ -1,6 +1,6 @@
 {
   "name": "commander-extras",
-  "version": "1.3.1",
+  "version": "1.4.0",
   "description": "Extra functionality for commander including environment variables and notes",
   "main": "index.js",
   "scripts": {
